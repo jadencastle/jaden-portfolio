@@ -1,0 +1,13 @@
+colors: {
+        background: "#1b2a1d",     // deep forest green (like #0a192f)
+        primary: "#3F5A36",        // main accent green
+        primaryLight: "#5c7b4d",   // lighter green
+        primaryDark: "#2e4228",    // darker green
+
+        moss100: "#e5efe4",        // like slate-100
+        moss200: "#cbdcc9",
+        moss400: "#9fb69b",        // like slate-400
+        moss500: "#7f9c7c",        // like slate-500
+        moss700: "#4e644d",        // like slate-700
+        moss800: "#394c38",        // like slate-800
+      }

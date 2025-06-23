@@ -4,7 +4,7 @@ import Projects from './components/Projects';
 
 export default function App() {
   return (
-    <div className="flex min-h-screen bg-[#0a192f] text-white">
+    <div className="flex min-h-screen bg-[#1b2a1d] text-white">
       <Sidebar />
       <main className="flex-1 px-8 py-12 overflow-y-auto">
         <About />

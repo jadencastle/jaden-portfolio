@@ -3,9 +3,13 @@ export default function Projects() {
       <section className="max-w-3xl">
         <h2 className="text-xl font-semibold text-white mb-6">Projects</h2>
         <div className="space-y-4">
-          <div className="p-4 border border-slate-700 rounded-md">
+          <div className="p-4 border border-[#4e644d] rounded-md">
             <h3 className="text-lg font-bold">Project Name</h3>
-            <p className="text-slate-400">Project description.</p>
+            <p className="text-[#9fb69b]">Project description.</p>
+          </div>
+          <div className="p-4 border border-[#4e644d] rounded-md">
+            <h3 className="text-lg font-bold">Project Name</h3>
+            <p className="text-[#9fb69b]">Project description.</p>
           </div>
         </div>
       </section>
