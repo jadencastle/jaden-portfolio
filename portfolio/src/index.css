@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Global Defaults */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -21,12 +20,10 @@ body {
   min-height: 100vh;
 }
 
-/* Optional: reset links */
 a {
   text-decoration: none;
 }
 
-/* Optional: basic focus style */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

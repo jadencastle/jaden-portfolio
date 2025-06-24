@@ -11,3 +11,16 @@ colors: {
         moss700: "#4e644d",        // like slate-700
         moss800: "#394c38",        // like slate-800
       }
+
+
+notes:
+
+Projects
+
+Lines for Sidebar
+
+Hover Mouse Light Effect
+
+Bouncy Thing
+
+
