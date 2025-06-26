@@ -23,7 +23,7 @@ export default function Sidebar() {
           precision, and purpose.
         </p>
         <nav className="mt-12">
-          <ul className="space-y-5 text-sm font-medium text-[#7f9c7c]">
+          <ul className="space-y-5 text-m font-medium text-[#7f9c7c]">
             <li className="text-white">ABOUT</li>
             <li>PROJECTS</li>
             <li>

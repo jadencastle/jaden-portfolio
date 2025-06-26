@@ -17,10 +17,6 @@ notes:
 
 Projects
 
-Lines for Sidebar
-
-Hover Mouse Light Effect
-
 Bouncy Thing
 
 

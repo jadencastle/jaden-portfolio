@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "AI-Powered Resume Tailoring Website",
+    "description": "A web tool that helps users tailor resumes to job postings by analyzing job descriptions with AI, providing personalized recommendations, and enabling job application tracking through a dashboard.",
+    "slug": "JobForge"
+  },
+  {
+    "id": 2,
+    "name": "Portfolio Website",
+    "description": "A portfolio site built with React and Tailwind CSS.",
+    "slug": "portfolio-website"
+  }
+]
