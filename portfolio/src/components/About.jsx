@@ -1,6 +1,6 @@
 export default function About() {
     return (
-      <section className="py-8 max-w-3xl">
+      <section id="about" className="text-base py-8 max-w-3xl">
         <p className="text-[#9fb69b] leading-relaxed">
         I’m a user experience engineer passionate about designing and building accessible, inclusive digital experiences that put people first. My favorite work lives at the intersection of empathy and execution by creating interfaces that are visually compelling and thoughtfully engineered for real-world impact, usability, and equity.
         </p><br></br>

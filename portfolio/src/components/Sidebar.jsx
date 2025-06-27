@@ -24,12 +24,26 @@ export default function Sidebar() {
         </p>
         <nav className="mt-12">
           <ul className="space-y-5 text-m font-medium text-[#7f9c7c]">
-            <li className="text-white">ABOUT</li>
-            <li>PROJECTS</li>
+            <li>
+              <a 
+                href="#about"
+                className="text-[#7f9c7c] transition-colors duration-300 hover:text-white"
+                >
+                  ABOUT
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="text-[#7f9c7c] transition-colors duration-300 hover:text-white"
+              >
+                PROJECTS
+              </a>
+            </li>
             <li>
               <a href='/CastleResume.pdf'
               download='CastleResume.pdf'
-              className="text-[#7f9c7c] hover:text-white transition"
+              className="text-[#7f9c7c] transition-colors duration-300 hover:text-white"
               >
               RESUME
               </a>
@@ -51,6 +65,7 @@ export default function Sidebar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            className="transition-transform duration-300 transform hover:scale-[1.3]"
           >
             <FaLinkedin />
           </a>
@@ -59,13 +74,15 @@ export default function Sidebar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
+            className="transition-transform duration-300 transform hover:scale-[1.3]"
           >
             <FaGithub />
           </a>
           <div
             onClick={handleCopy}
-            className="cursor-pointer"
+            className="cursor-pointer transition-transform duration-300 transform hover:scale-[1.3]"
             aria-label="Copy Email"
+            
           >
             <FaEnvelope />
           </div>

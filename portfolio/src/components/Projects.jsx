@@ -2,17 +2,26 @@ import projectData from "../data/projects.json";
 
 export default function Projects() {
   return (
-    <section className="max-w-3xl">
+    <section id="projects" className="max-w-3xl">
       <h2 className="text-xl font-semibold text-white mb-6">Projects</h2>
       <div className="space-y-4">
         {projectData.map((project) => (
-          <div
+          <button
             key={project.id}
-            className="p-4 border border-[#4e644d] rounded-md"
+            className="group w-full text-left flex items-start space-x-6 p-4 rounded-md hover:bg-[#263a2b] transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
           >
-            <h3 className="text-lg font-bold">{project.name}</h3>
-            <p className="text-[#9fb69b]">{project.description}</p>
-          </div>
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-24 h-24 object-cover rounded group-hover:border group-hover:border-[#9dd8ae]"
+            />
+            <div className="flex flex-col justify-center">
+              <h3 className="text-base font-bold text-white transition-colors duration-300 group-hover:text-[#9dd8ae]">
+                {project.name}
+              </h3>
+              <p className="text-[#9fb69b]">{project.description}</p>
+            </div>
+          </button>
         ))}
       </div>
     </section>
