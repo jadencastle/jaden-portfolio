@@ -6,8 +6,11 @@ export default function Projects() {
       <h2 className="text-xl font-semibold text-white mb-6">Projects</h2>
       <div className="space-y-4">
         {projectData.map((project) => (
-          <button
+          <a
             key={project.id}
+            href={`/projects/${project.slug.toLowerCase()}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group w-full text-left flex items-start space-x-6 p-4 rounded-md hover:bg-[#263a2b] transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
           >
             <img
@@ -21,7 +24,7 @@ export default function Projects() {
               </h3>
               <p className="text-[#9fb69b]">{project.description}</p>
             </div>
-          </button>
+          </a>
         ))}
       </div>
     </section>

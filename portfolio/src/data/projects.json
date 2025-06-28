@@ -1,16 +1,145 @@
 [
   {
     "id": 1,
-    "name": "Job Forge: AI-Powered Resume Tailoring Website",
+    "slug": "jobforge",
+    "name": "JobForge - AI-Powered Resume Optimization and Job Tracking Platform",
     "description": "A web tool that helps users tailor resumes to job postings by analyzing job descriptions with AI, providing personalized recommendations, and enabling job application tracking through a dashboard.",
-    "slug": "JobForge",
-    "image": "./public/JobForge.png"
+    "image": "/JobForge.png",
+    "hero": {
+      "title": "Job Forge",
+      "subtitle": "A full-stack web app that helps job seekers tailor resumes, discover jobs, and track applications using real-time AI feedback and NLP-driven match scores."
+    },
+    "overview": {
+      "problem": "Job seekers face difficulty tailoring resumes to job descriptions, getting through ATS filters, and managing multiple job applications across platforms.",
+      "intro": "JobForge is a web application built to simplify and enhance the modern job search experience. It empowers users to upload resumes, receive intelligent improvement suggestions, search for relevant job listings via the Indeed API, and track their saved applications — all in one dashboard.",
+      "goals": {
+        "1": "Create a centralized, user-friendly platform for job seekers.",
+        "2": "Address frustrations caused by fragmented job search systems and automated ATS filters."
+      },
+      "details": {
+        "role": "UX Engineer",
+        "tasks": "Wireframing, Prototyping, Full-Stack Development, UX Research, UI & UX Design, Usability Testing",
+        "tools": "React, Flask, SQLite, OpenAI API, Indeed API, Tailwind CSS, CORS",
+        "scope": "4 Months"
+      }
+    },
+    "exploration": {
+      "research_summary": "We started by identifying the pain points of early-career job seekers: impersonal ATS filters, repetitive resume editing, fragmented job search systems, and lack of feedback. Being job seekers ourselves, we brought firsthand insight but also acknowledged our own positional biases.",
+      "methods": {
+        "method_1": {
+          "title": "Competitive Analysis",
+          "items": [
+            "Evaluated platforms like Zety, ResumeWorded, and Grammarly.",
+            "Found that most provide static feedback and limited context-based suggestions.",
+            "Influenced our decision to focus on real-time, tailored insights."
+          ]
+        },
+        "method_2": {
+          "title": "API Research",
+          "items": [
+            "Explored LinkedIn and Glassdoor APIs but selected Indeed for practical implementation.",
+            "Scraped and parsed structured job data for accurate and real-time listings."
+          ]
+        },
+        "method_3": {
+          "title": "User Assumptions",
+          "items": [
+            "Understood from personal experience that users value clarity, simplicity, and responsiveness.",
+            "Chose to validate through peer demos and feedback post-development due to time limitations."
+          ]
+        }
+      }
+    },
+"design_process": {
+  "intro": "Our design process focused on clarity, iteration, and real-world validation. Each step was grounded in user empathy and technical feasibility.",
+  "phases": {
+    "phase_1": {
+      "title": "Flows & Wireframes",
+      "summary": "We aimed to create an intuitive and streamlined path for users. The flow began with registration/login and progressed through resume upload, job search, scoring, and viewing personalized suggestions. This structure minimized friction and helped users focus on optimizing their job search.",
+      "goal": "A low-friction onboarding and job-tracking experience.",
+      "contribution": "Mapped out minimal-click paths to improve retention and reduced user effort."
+    },
+    "phase_2": {
+      "title": "Prototyping & Iteration",
+      "summary": "We began with the Users page to establish layout principles and backend connections. Components were built incrementally, including the job search interface, resume upload, dashboard, and resume scoring.",
+      "goal": "A stable foundation for consistent design and functionality.",
+      "contribution": "Allowed iterative testing and feedback loops, minimizing rework and surfacing bugs early."
+    },
+    "phase_3": {
+      "title": "Frontend Development",
+      "summary": "We implemented responsive, modular UI components using React and Tailwind CSS. Grammarly’s interface inspired a clean layout with sidebar navigation.",
+      "goal": "A scalable and visually coherent interface.",
+      "contribution": "Enhanced usability, readability, and navigation across devices."
+    },
+    "phase_4": {
+      "title": "Testing",
+      "summary": "Weekly team syncs ensured that independently built components integrated smoothly. We ran manual and live tests during and after development.",
+      "goal": "Functional reliability and user experience consistency.",
+      "contribution": "Caught integration bugs early and improved component compatibility."
+    },
+    "phase_5": {
+      "title": "Validation",
+      "summary": "Although formal user testing was limited, we validated through peer feedback and showcase demonstrations.",
+      "goal": "Confirm that the design met user expectations.",
+      "contribution": "Users responded positively to the clarity and efficiency of the interface."
+    }
+  }
+},
+"final_design": {
+  "summary": "We delivered a complete, full-stack application with a cohesive design and reliable performance. The platform featured clean card-based job listings, real-time resume scoring, and easy navigation across the dashboard.",
+  "why_this_solution": [
+    "Balanced technical depth (NLP, AI scoring) with intuitive UI.",
+    "Focused on functionality that addressed real-world frustrations."
+  ],
+  "alternatives_considered": [
+    "In-app resume editing (excluded due to time and technical constraints).",
+    "More polished job match algorithms (deferred for future work)."
+  ],
+  "visuals": [
+    "Resume upload section with multi-format support.",
+    "Match score and feedback displayed next to saved jobs.",
+    "Job search with filters by title and location."
+  ]
+},
+"impact_and_learnings": {
+  "impact": {
+    "summary": "While we lacked formal analytics, we measured success by technical completeness, showcase feedback, and personal use cases.",
+    "quantifiable": [
+      "100% functional web app deployed and demoed.",
+      "Real-time job retrieval and NLP-based resume scoring.",
+      "Feedback loop for job-specific and general resume suggestions."
+    ],
+    "qualitative": [
+      "Validated user need through reactions at the showcase.",
+      "Empowered peers with a tool that reduced application guesswork."
+    ]
+  },
+  "learnings": {
+    "summary": "This project was a masterclass in balancing technical implementation with UX. We learned how to integrate advanced NLP tools, work collaboratively across a stack, and translate personal pain points into functional software.",
+    "takeaways": [
+      "Iterative integration is essential to avoid compounding issues.",
+      "Resume improvement is not one-size-fits-all; personalization matters.",
+      "User assumptions must eventually be validated through testing."
+    ],
+    "what_we_would_change": [
+      "Start usability testing earlier.",
+      "Explore more APIs for job listings.",
+      "Build editing functionality directly into the platform."
+    ],
+    "jobs_to_be_done": [
+      "Help me know if my resume is good for this job.",
+      "Show me where I’m falling short compared to a job description.",
+      "Let me track and improve all my applications in one place."
+    ]
+  }
+}
+
   },
   {
     "id": 2,
     "name": "Outfitted: A Fashion App for Genuine Self-Expression",
     "description": "A fashion inspiration app that removes likes and followers to create an inclusive space for authentic style sharing. Outfitted empowers users to tag, organize, and explore outfits without the pressures of social media popularity.",
-    "slug": "Outfitted",
-    "image": "./public/Outfitted.png"
+    "slug": "outfitted",
+    "image": "/Outfitted.png"
   }
 ]
