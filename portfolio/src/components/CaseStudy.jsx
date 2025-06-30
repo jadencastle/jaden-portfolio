@@ -1,9 +1,22 @@
 import { useParams } from "react-router-dom";
 import projectData from "../data/projects.json";
+import { useState } from "react";
+import { useEffect } from "react";
+
 
 export default function CaseStudy() {
   const { slug } = useParams();
   const project = projectData.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+  
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   if (!project) {
     return <div className="text-white p-4">Project not found.</div>;
@@ -11,7 +24,6 @@ export default function CaseStudy() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 text-white space-y-12">
-
       {/* Hero Section */}
       <div className="text-center space-y-2 mb-12">
         <h1 className="text-4xl font-bold">{project.hero.title}</h1>
@@ -23,14 +35,12 @@ export default function CaseStudy() {
         <section className="space-y-12">
           <div className="bg-[#1f2a1f] border border-[#3a4f3a] rounded-2xl shadow-lg p-10">
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* LEFT: Overview Content */}
               <div className="space-y-10">
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-white">Overview</h3>
                   <p className="text-[#9fb69b]">{project.overview.problem}</p>
                   <p className="text-[#9fb69b]">{project.overview.intro}</p>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Goals</h3>
                   <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
@@ -40,8 +50,6 @@ export default function CaseStudy() {
                   </ul>
                 </div>
               </div>
-
-              {/* RIGHT: Details Summary */}
               <div className="flex flex-col justify-center gap-16 text-[#9fb69b] pl-10 h-full">
                 {[
                   ["Role", project.overview.details.role],
@@ -60,10 +68,40 @@ export default function CaseStudy() {
         </section>
       )}
 
+      <div className="pt-6">
+        <h3 className="text-lg font-semibold text-white mb-4">Final Designs</h3>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+{Object.keys(project.photos).map((key) => (
+  <img
+    key={key}
+    src={`/${project.photos[key]}`}
+    alt={`Screenshot ${key}`}
+    onClick={() => setSelectedImage(`/${project.photos[key]}`)}
+    className="rounded-xl shadow-lg w-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
+  />
+))}
+{selectedImage && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+    onClick={() => setSelectedImage(null)}
+  >
+    <img
+      src={selectedImage}
+      alt="Enlarged"
+      className="max-w-full max-h-[90vh] rounded-lg shadow-2xl"
+      onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
+    />
+  </div>
+)}
+
+
+        </div>
+      </div>
+
       {/* Exploration & Discovery */}
       {project.exploration && (
         <section className="space-y-12">
-          <div className="space-y-8">
+          <div className="bg-[#1f2a1f] border border-[#3a4f3a] rounded-2xl shadow-lg p-10 space-y-10">
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-white">Exploration & Discovery</h2>
               <p className="text-[#9fb69b] max-w-4xl leading-relaxed">
@@ -71,7 +109,6 @@ export default function CaseStudy() {
               </p>
             </div>
 
-            {/* Grid of Methods */}
             <div className="grid md:grid-cols-2 gap-10">
               {Object.values(project.exploration.methods).map((method, idx) => (
                 <div key={idx} className="space-y-2">
@@ -99,59 +136,59 @@ export default function CaseStudy() {
               </p>
             </div>
 
-<div className="grid md:grid-cols-2 gap-10">
-  {Object.values(project.design_process.phases).map((phase, idx, arr) => {
-    const isLast = idx === arr.length - 1;
-    const isOddCount = arr.length % 2 !== 0;
+            <div className="grid md:grid-cols-2 gap-10">
+              {Object.values(project.design_process.phases).map((phase, idx, arr) => {
+                const isLast = idx === arr.length - 1;
+                const isOdd = arr.length % 2 !== 0;
 
-    return (
-      <div
-        key={idx}
-        className={`bg-[#1f2a1f] border border-[#3a4f3a] rounded-xl p-6 space-y-4 shadow ${
-          isLast && isOddCount ? "md:col-span-2 md-max-w-3x1 md:mx-auto" : ""
-        }`}
-      >
-        <h3 className="text-xl font-semibold text-white">{phase.title}</h3>
-        <p className="text-[#9fb69b]">{phase.summary}</p>
-        <div className="text-[#9fb69b] space-y-1">
-          <p><span className="text-white font-medium">What we wanted to achieve:</span> {phase.goal}</p>
-          <p><span className="text-white font-medium">How it contributed:</span> {phase.contribution}</p>
-        </div>
-      </div>
-    );
-  })}
-</div>
+                return (
+                  <div
+                    key={idx}
+                    className={`bg-[#1f2a1f] border border-[#3a4f3a] rounded-xl p-6 space-y-4 shadow ${
+                      isLast && isOdd ? "md:col-span-2 md:max-w-3xl md:mx-auto" : ""
+                    }`}
+                  >
+                    <h3 className="text-xl font-semibold text-white">{phase.title}</h3>
+                    <p className="text-[#9fb69b]">{phase.summary}</p>
+                    <div className="text-[#9fb69b] space-y-1">
+                      <p><span className="text-white font-medium">What we wanted to achieve:</span> {phase.goal}</p>
+                      <p><span className="text-white font-medium">How it contributed:</span> {phase.contribution}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
 {project.final_design && (
   <section className="space-y-12">
-    <div className="space-y-8">
+    <div className="bg-[#1f2a1f] border border-[#3a4f3a] rounded-2xl shadow-lg p-10 space-y-10">
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-white">Final Design & Solution</h2>
-        <p className="text-[#9fb69b] max-w-4xl leading-relaxed">
-          {project.final_design.summary}
-        </p>
+        <p className="text-[#9fb69b] max-w-4xl leading-relaxed">{project.final_design.summary}</p>
       </div>
 
-      {/* Why this solution */}
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold text-white">Why this solution</h3>
-        <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
-          {project.final_design.why_this_solution.map((point, i) => (
-            <li key={i}>{point}</li>
-          ))}
-        </ul>
+      <div className="grid md:grid-cols-2 gap-10">
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Why this solution</h3>
+          <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
+            {project.final_design.why_this_solution.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Alternatives considered</h3>
+          <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
+            {project.final_design.alternatives_considered.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      {/* Alternatives considered */}
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold text-white">Alternatives considered</h3>
-        <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
-          {project.final_design.alternatives_considered.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Visuals */}
       <div className="space-y-2">
         <h3 className="text-lg font-semibold text-white">Visual Highlights</h3>
         <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
@@ -163,10 +200,12 @@ export default function CaseStudy() {
     </div>
   </section>
 )}
+
+
 {project.impact_and_learnings && (
   <section className="space-y-12">
-    {/* Impact Section */}
-    <div className="space-y-8">
+    {/* Impact Card */}
+    <div className="bg-[#1f2a1f] border border-[#3a4f3a] rounded-2xl shadow-lg p-10 space-y-10">
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-white">Impact</h2>
         <p className="text-[#9fb69b] max-w-4xl leading-relaxed">
@@ -175,16 +214,16 @@ export default function CaseStudy() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-10">
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-2">Quantifiable Outcomes</h3>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Quantifiable Outcomes</h3>
           <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
             {project.impact_and_learnings.impact.quantifiable.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-2">Qualitative Impact</h3>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Qualitative Impact</h3>
           <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
             {project.impact_and_learnings.impact.qualitative.map((item, i) => (
               <li key={i}>{item}</li>
@@ -194,8 +233,8 @@ export default function CaseStudy() {
       </div>
     </div>
 
-    {/* Learnings Section */}
-    <div className="space-y-8">
+    {/* Learnings Card */}
+    <div className="bg-[#1f2a1f] border border-[#3a4f3a] rounded-2xl shadow-lg p-10 space-y-10">
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-white">Learnings</h2>
         <p className="text-[#9fb69b] max-w-4xl leading-relaxed">
@@ -203,27 +242,25 @@ export default function CaseStudy() {
         </p>
       </div>
 
-      {/* Key Takeaways */}
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold text-white">Key Takeaways</h3>
-        <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
-          {project.impact_and_learnings.learnings.takeaways.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
+      <div className="grid md:grid-cols-2 gap-10">
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Key Takeaways</h3>
+          <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
+            {project.impact_and_learnings.learnings.takeaways.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">What We’d Do Differently</h3>
+          <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
+            {project.impact_and_learnings.learnings.what_we_would_change.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      {/* What We'd Do Differently */}
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold text-white">What We’d Do Differently</h3>
-        <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
-          {project.impact_and_learnings.learnings.what_we_would_change.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Jobs to Be Done */}
       <div className="space-y-2">
         <h3 className="text-lg font-semibold text-white">Jobs to Be Done</h3>
         <ul className="list-disc pl-5 text-[#9fb69b] space-y-1">
@@ -235,11 +272,6 @@ export default function CaseStudy() {
     </div>
   </section>
 )}
-
-
-          </div>
-        </section>
-      )}
 
     </section>
   );

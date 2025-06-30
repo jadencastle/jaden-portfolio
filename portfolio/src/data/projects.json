@@ -101,6 +101,7 @@
     "Job search with filters by title and location."
   ]
 },
+
 "impact_and_learnings": {
   "impact": {
     "summary": "While we lacked formal analytics, we measured success by technical completeness, showcase feedback, and personal use cases.",
@@ -132,6 +133,14 @@
       "Let me track and improve all my applications in one place."
     ]
   }
+},
+"photos": {
+  "1": "./CaseStudies/JF/JF1.jpg",
+  "2": "./CaseStudies/JF/JF2.jpg",
+  "3": "./CaseStudies/JF/JF3.jpg",
+  "4": "./CaseStudies/JF/JF4.jpg",
+  "5": "./CaseStudies/JF/JF5.jpg",
+  "6": "./CaseStudies/JF/JF6.jpg"
 }
 
   },
