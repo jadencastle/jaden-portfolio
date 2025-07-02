@@ -12,22 +12,22 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-[35vw] sticky top-0 h-screen flex flex-col justify-between items-center px-20 py-20 border-r border-[#394c38]">
+    <aside className="w-[35vw] sticky top-0 h-screen flex flex-col justify-between items-center px-20 py-20 border-r border-green-950">
       <div className="space-y-3">
-        <h1 className="text-5xl font-bold">Jaden Castle</h1>
-        <h2 className="text-2xl font-semibold text-[#e5efe4]">
+        <h1 className="text-5xl font-bold text-zinc-100">Jaden Castle</h1>
+        <h2 className="text-2xl font-semibold	text-stone-50">
           User Experience Designer & Developer
         </h2>
-        <p className="space-y-2 font-medium text-[#7f9c7c]">
+        <p className="space-y-2 font-medium	text-stone-300">
           I design and build inclusive experiences that prioritize people,
           precision, and purpose.
         </p>
         <nav className="mt-12">
-          <ul className="space-y-5 text-m font-medium text-[#7f9c7c]">
+          <ul className="space-y-5 text-m font-medium text-[#9dd8ae]">
             <li>
               <a 
                 href="#about"
-                className="text-[#7f9c7c] transition-colors duration-300 hover:text-white"
+                className="text-[#9dd8ae] transition-colors duration-300 hover:text-white"
                 >
                   ABOUT
               </a>
@@ -35,7 +35,7 @@ export default function Sidebar() {
             <li>
               <a
                 href="#projects"
-                className="text-[#7f9c7c] transition-colors duration-300 hover:text-white"
+                className="text-[#9dd8ae] transition-colors duration-300 hover:text-white"
               >
                 PROJECTS
               </a>
@@ -43,7 +43,7 @@ export default function Sidebar() {
             <li>
               <a href='/CastleResume.pdf'
               download='CastleResume.pdf'
-              className="text-[#7f9c7c] transition-colors duration-300 hover:text-white"
+              className="text-[#9dd8ae] transition-colors duration-300 hover:text-white"
               >
               RESUME
               </a>
@@ -59,13 +59,13 @@ export default function Sidebar() {
           </div>
         )}
 
-        <div className="flex space-x-6 text-[#7f9c7c] text-3xl">
+        <div className="flex space-x-6 text-[#9dd8ae] text-3xl">
         <a
             href="https://www.linkedin.com/in/jadencastle"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="transition-transform duration-300 transform hover:scale-[1.3]"
+            className="transition-transform duration-300 transform hover:scale-[1.3 hover:text-white"
           >
             <FaLinkedin />
           </a>
@@ -74,13 +74,13 @@ export default function Sidebar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="transition-transform duration-300 transform hover:scale-[1.3]"
+            className="transition-transform duration-300 transform hover:scale-[1.3] hover:text-white"
           >
             <FaGithub />
           </a>
           <div
             onClick={handleCopy}
-            className="cursor-pointer transition-transform duration-300 transform hover:scale-[1.3]"
+            className="cursor-pointer transition-transform duration-300 transform hover:scale-[1.3] hover:text-white"
             aria-label="Copy Email"
             
           >

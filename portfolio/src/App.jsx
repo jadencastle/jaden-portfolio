@@ -9,7 +9,7 @@ function Layout() {
   const hideSidebar = location.pathname.startsWith("/projects/");
 
   return (
-    <div className="flex min-h-screen bg-[#1b2a1d] text-white">
+    <div className="flex min-h-screen bg-green-950 text-white">
       {!hideSidebar && <Sidebar />}
       <main className="flex-1 px-8 py-12 overflow-y-auto">
         <Routes>

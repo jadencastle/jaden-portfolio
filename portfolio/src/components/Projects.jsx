@@ -11,7 +11,7 @@ export default function Projects() {
             href={`/projects/${project.slug.toLowerCase()}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-full text-left flex items-start space-x-6 p-4 rounded-md hover:bg-[#263a2b] transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
+            className="group w-full text-left flex items-start space-x-6 p-4 rounded-md hover:bg-green-900 transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
           >
             <img
               src={project.image}
@@ -19,10 +19,10 @@ export default function Projects() {
               className="w-24 h-24 object-cover rounded group-hover:border group-hover:border-[#9dd8ae]"
             />
             <div className="flex flex-col justify-center">
-              <h3 className="text-base font-bold text-white transition-colors duration-300 group-hover:text-[#9dd8ae]">
+              <h3 className="text-base font-bold group-hover:text-white transition-colors duration-300 text-[#9dd8ae]">
                 {project.name}
               </h3>
-              <p className="text-[#9fb69b]">{project.description}</p>
+              <p className=" text-stone-200">{project.description}</p>
             </div>
           </a>
         ))}
