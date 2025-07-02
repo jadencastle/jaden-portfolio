@@ -2,7 +2,7 @@ import projectData from "../data/projects.json";
 
 export default function Projects() {
   return (
-    <section id="projects" className="max-w-3xl">
+    <section id="projects" className="max-w-3xl px-4 sm:px-0 mx-auto text-center lg:text-left">
       <h2 className="text-xl font-semibold text-white mb-6">Projects</h2>
       <div className="space-y-4">
         {projectData.map((project) => (
@@ -11,7 +11,7 @@ export default function Projects() {
             href={`/projects/${project.slug.toLowerCase()}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-full text-left flex items-start space-x-6 p-4 rounded-md hover:bg-green-900 transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
+            className="group w-full flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-6 p-4 rounded-md hover:bg-green-900 transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
           >
             <img
               src={project.image}
