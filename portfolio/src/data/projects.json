@@ -135,12 +135,12 @@
   }
 },
 "photos": {
-  "1": "./portfolio/public/CaseStudies/JF/JF1.jpg",
-  "2": "./portfolio/public/CaseStudies/JF/JF2.jpg",
-  "3": "./portfolio/public/CaseStudies/JF/JF3.jpg",
-  "4": "./portfolio/public/CaseStudies/JF/JF4.jpg",
-  "5": "./portfolio/public/CaseStudies/JF/JF5.jpg",
-  "6": "./portfolio/public/CaseStudies/JF/JF6.jpg"
+  "1": "CaseStudies/JF/JF1.jpg",
+  "2": "CaseStudies/JF/JF2.jpg",
+  "3": "CaseStudies/JF/JF3.jpg",
+  "4": "CaseStudies/JF/JF4.jpg",
+  "5": "CaseStudies/JF/JF5.jpg",
+  "6": "CaseStudies/JF/JF6.jpg"
 }
 
   },
@@ -149,6 +149,51 @@
     "name": "Outfitted: A Fashion App for Genuine Self-Expression",
     "description": "A fashion inspiration app that removes likes and followers to create an inclusive space for authentic style sharing. Outfitted empowers users to tag, organize, and explore outfits without the pressures of social media popularity.",
     "slug": "outfitted",
-    "image": "./Outfitted.png"
+    "image": "./Outfitted.png",
+    "hero": {
+      "title": "Outfitted",
+      "subtitle": "A fashion platform concept where creativity flows freely and inspiration is the only currency."
+    },
+    "overview": {
+      "problem": "Problem statement coming soon.",
+      "intro": "Intro text coming soon.",
+      "goals": { "1": "Goal details coming soon." },
+      "details": {
+        "role": "Designer",
+        "tasks": "To be defined",
+        "tools": "To be defined",
+        "scope": "To be defined"
+      }
+    },
+    "photos": {
+      "1": "CaseStudies/Outfitted/OF1.jpg"
+    },
+    "exploration": {
+      "research_summary": "Exploration details coming soon.",
+      "methods": {}
+    },
+    "design_process": {
+      "intro": "Design process details coming soon.",
+      "phases": {}
+    },
+    "final_design": {
+      "summary": "Final design details coming soon.",
+      "why_this_solution": [],
+      "alternatives_considered": [],
+      "visuals": []
+    },
+    "impact_and_learnings": {
+      "impact": {
+        "summary": "",
+        "quantifiable": [],
+        "qualitative": []
+      },
+      "learnings": {
+        "summary": "",
+        "takeaways": [],
+        "what_we_would_change": [],
+        "jobs_to_be_done": []
+        }  
+      }
   }
 ]

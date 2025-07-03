@@ -1,4 +1,5 @@
 import projectData from "../data/projects.json";
+import { Link } from "react-router-dom";
 
 export default function Projects() {
   return (
@@ -6,11 +7,9 @@ export default function Projects() {
       <h2 className="text-xl font-semibold text-white mb-6">Projects</h2>
       <div className="space-y-4">
         {projectData.map((project) => (
-          <a
+          <Link
             key={project.id}
-            href={`${window.location.origin}/jaden-portfolio/projects/${project.slug.toLowerCase()}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            to={`/projects/${project.slug.toLowerCase()}`}
             className="group w-full flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-6 p-4 rounded-md hover:bg-green-900 transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
           >
             <img
@@ -24,7 +23,7 @@ export default function Projects() {
               </h3>
               <p className=" text-stone-200">{project.description}</p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

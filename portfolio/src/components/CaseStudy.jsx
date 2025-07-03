@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import projectData from "../data/projects.json";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Card = ({ children }) => (
   <div className="bg-[#132d1f] border border-[#2f4e3b] rounded-2xl shadow-lg p-6 sm:p-10 space-y-10">
@@ -39,8 +41,13 @@ const SectionWrapper = ({ title, children, noCard = false }) => {
 
 export default function CaseStudy() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const project = projectData.find(p => p.slug.toLowerCase() === slug.toLowerCase());
   const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -56,6 +63,13 @@ export default function CaseStudy() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 text-zinc-100 space-y-12">
+      <button
+        onClick={() => navigate(-1)}
+        className="fixed top-4 left-4 z-40 flex items-center gap-2 bg-[#132d1f] hover:bg-[#1e3b2b] text-[#9dd8ae] hover:text-white px-4 py-2 rounded-full shadow-lg transition-colors duration-300 border border-[#2f4e3b]"
+      >
+        <FaArrowLeft />
+          <span className="hidden sm:inline">Back to Projects</span>
+      </button>
       <div className="text-center space-y-6 mb-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{project.hero.title}</h1>
         <p className="text-base sm:text-lg text-stone-50 max-w-2xl mx-auto py-1.5">{project.hero.subtitle}</p>
@@ -90,9 +104,9 @@ export default function CaseStudy() {
           {Object.keys(project.photos).map((key) => (
             <img
               key={key}
-              src={`/${project.photos[key]}`}
+              src={`${import.meta.env.BASE_URL}${project.photos[key]}`}
               alt={`Screenshot ${key}`}
-              onClick={() => setSelectedImage(`/${project.photos[key]}`)}
+              onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}${project.photos[key]}`)}
               className="rounded-xl shadow-lg w-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
             />
           ))}
