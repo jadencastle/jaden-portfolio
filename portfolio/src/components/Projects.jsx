@@ -1,4 +1,4 @@
-import projectData from "../data/projects.json";
+import projectData from "./data/projects.json";
 
 export default function Projects() {
   return (
@@ -8,7 +8,7 @@ export default function Projects() {
         {projectData.map((project) => (
           <a
             key={project.id}
-            href={`/projects/${project.slug.toLowerCase()}`}
+            href={`/jaden-portfolio/projects/${project.slug.toLowerCase()}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group w-full flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-6 p-4 rounded-md hover:bg-green-900 transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
