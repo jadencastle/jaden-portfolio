@@ -10,6 +10,13 @@ export default function Projects() {
           <Link
             key={project.id}
             to={`/projects/${project.slug.toLowerCase()}`}
+            onClick={e => {
+              e.preventDefault();
+              window.open(
+                `${window.location.origin}/jaden-portfolio/projects/${project.slug.toLowerCase()}`,
+                "_blank"
+              );
+            }}
             className="group w-full flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-6 p-4 rounded-md hover:bg-green-900 transition-transform duration-300 transform hover:scale-[1.01] focus:outline-none"
           >
             <img

@@ -135,12 +135,12 @@
   }
 },
 "photos": {
-  "1": "./CaseStudies/JF/JF1.jpg",
-  "2": "./CaseStudies/JF/JF2.jpg",
-  "3": "./CaseStudies/JF/JF3.jpg",
-  "4": "./CaseStudies/JF/JF4.jpg",
-  "5": "./CaseStudies/JF/JF5.jpg",
-  "6": "./CaseStudies/JF/JF6.jpg"
+  "1": "./portfolio/public/CaseStudies/JF/JF1.jpg",
+  "2": "./portfolio/public/CaseStudies/JF/JF2.jpg",
+  "3": "./portfolio/public/CaseStudies/JF/JF3.jpg",
+  "4": "./portfolio/public/CaseStudies/JF/JF4.jpg",
+  "5": "./portfolio/public/CaseStudies/JF/JF5.jpg",
+  "6": "./portfolio/public/CaseStudies/JF/JF6.jpg"
 }
 
   },
@@ -149,6 +149,6 @@
     "name": "Outfitted: A Fashion App for Genuine Self-Expression",
     "description": "A fashion inspiration app that removes likes and followers to create an inclusive space for authentic style sharing. Outfitted empowers users to tag, organize, and explore outfits without the pressures of social media popularity.",
     "slug": "outfitted",
-    "image": "/Outfitted.png"
+    "image": "./Outfitted.png"
   }
 ]
