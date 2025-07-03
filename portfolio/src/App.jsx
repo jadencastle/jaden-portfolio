@@ -31,7 +31,7 @@ function Layout() {
 
 export default function App() {
   return (
-    <Router basename="/jaden-portfolio/">
+    <Router basename="/">
       <Layout />
     </Router>
   );
