@@ -4,7 +4,7 @@
     "slug": "jobforge",
     "name": "JobForge - AI-Powered Resume Optimization and Job Tracking Platform",
     "description": "A web tool that helps users tailor resumes to job postings by analyzing job descriptions with AI, providing personalized recommendations, and enabling job application tracking through a dashboard.",
-    "image": "/JobForge.png",
+    "image": "./JobForge.png",
     "hero": {
       "title": "Job Forge",
       "subtitle": "A full-stack web app that helps job seekers tailor resumes, discover jobs, and track applications using real-time AI feedback and NLP-driven match scores."
