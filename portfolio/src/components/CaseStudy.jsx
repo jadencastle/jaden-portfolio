@@ -103,12 +103,14 @@ export default function CaseStudy() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {Object.keys(project.photos).map((key) => (
             <img
-              key={key}
-              src={`${import.meta.env.BASE_URL}${project.photos[key]}`}
-              alt={`Screenshot ${key}`}
-              onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}${project.photos[key]}`)}
-              className="rounded-xl shadow-lg w-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
-            />
+            key={key}
+            src={`${import.meta.env.BASE_URL}${project.photos[key]}`}
+            alt={`Screenshot ${key}`}
+            onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}${project.photos[key]}`)}
+            className={`rounded-xl shadow-lg w-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105 ${
+              project.photos[key].includes("OUT") ? "max-h-[980px] object-contain" : ""
+            }`}
+          />          
           ))}
         </div>
         {selectedImage && (
@@ -116,12 +118,16 @@ export default function CaseStudy() {
             className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
             onClick={() => setSelectedImage(null)}
           >
+            <div
+              className="pointer-events-none"
+            >
             <img
               src={selectedImage}
               alt="Enlarged"
               className="w-[95%] h-auto max-h-[90vh] rounded-lg shadow-2xl object-contain"
               onClick={(e) => e.stopPropagation()}
             />
+            </div>
           </div>
         )}
       </div>
@@ -257,14 +263,6 @@ export default function CaseStudy() {
                 ))}
               </ul>
             </div>
-          </div>
-          <div className="space-y-2">
-            <SubTitle>Jobs to Be Done</SubTitle>
-            <ul className="list-disc pl-5 text-stone-50 space-y-1">
-              {project.impact_and_learnings.learnings.jobs_to_be_done.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
           </div>
         </SectionWrapper>
       )}

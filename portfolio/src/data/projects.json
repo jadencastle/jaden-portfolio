@@ -50,99 +50,92 @@
         }
       }
     },
-"design_process": {
-  "intro": "Our design process focused on clarity, iteration, and real-world validation. Each step was grounded in user empathy and technical feasibility.",
-  "phases": {
-    "phase_1": {
-      "title": "Flows & Wireframes",
-      "summary": "We aimed to create an intuitive and streamlined path for users. The flow began with registration/login and progressed through resume upload, job search, scoring, and viewing personalized suggestions. This structure minimized friction and helped users focus on optimizing their job search.",
-      "goal": "A low-friction onboarding and job-tracking experience.",
-      "contribution": "Mapped out minimal-click paths to improve retention and reduced user effort."
+    "design_process": {
+      "intro": "Our design process focused on clarity, iteration, and real-world validation. Each step was grounded in user empathy and technical feasibility.",
+      "phases": {
+        "phase_1": {
+          "title": "Flows & Wireframes",
+          "summary": "We aimed to create an intuitive and streamlined path for users. The flow began with registration/login and progressed through resume upload, job search, scoring, and viewing personalized suggestions. This structure minimized friction and helped users focus on optimizing their job search.",
+          "goal": "A low-friction onboarding and job-tracking experience.",
+          "contribution": "Mapped out minimal-click paths to improve retention and reduced user effort."
+        },
+        "phase_2": {
+          "title": "Prototyping & Iteration",
+          "summary": "We began with the Users page to establish layout principles and backend connections. Components were built incrementally, including the job search interface, resume upload, dashboard, and resume scoring.",
+          "goal": "A stable foundation for consistent design and functionality.",
+          "contribution": "Allowed iterative testing and feedback loops, minimizing rework and surfacing bugs early."
+        },
+        "phase_3": {
+          "title": "Frontend Development",
+          "summary": "We implemented responsive, modular UI components using React and Tailwind CSS. Grammarly’s interface inspired a clean layout with sidebar navigation.",
+          "goal": "A scalable and visually coherent interface.",
+          "contribution": "Enhanced usability, readability, and navigation across devices."
+        },
+        "phase_4": {
+          "title": "Testing",
+          "summary": "Weekly team syncs ensured that independently built components integrated smoothly. We ran manual and live tests during and after development.",
+          "goal": "Functional reliability and user experience consistency.",
+          "contribution": "Caught integration bugs early and improved component compatibility."
+        },
+        "phase_5": {
+          "title": "Validation",
+          "summary": "Although formal user testing was limited, we validated through peer feedback and showcase demonstrations.",
+          "goal": "Confirm that the design met user expectations.",
+          "contribution": "Users responded positively to the clarity and efficiency of the interface."
+        }
+      }
     },
-    "phase_2": {
-      "title": "Prototyping & Iteration",
-      "summary": "We began with the Users page to establish layout principles and backend connections. Components were built incrementally, including the job search interface, resume upload, dashboard, and resume scoring.",
-      "goal": "A stable foundation for consistent design and functionality.",
-      "contribution": "Allowed iterative testing and feedback loops, minimizing rework and surfacing bugs early."
+    "final_design": {
+      "summary": "We delivered a complete, full-stack application with a cohesive design and reliable performance. The platform featured clean card-based job listings, real-time resume scoring, and easy navigation across the dashboard.",
+      "why_this_solution": [
+        "Balanced technical depth (NLP, AI scoring) with intuitive UI.",
+        "Focused on functionality that addressed real-world frustrations."
+      ],
+      "alternatives_considered": [
+        "In-app resume editing (excluded due to time and technical constraints).",
+        "More polished job match algorithms (deferred for future work)."
+      ],
+      "visuals": [
+        "Resume upload section with multi-format support.",
+        "Match score and feedback displayed next to saved jobs.",
+        "Job search with filters by title and location."
+      ]
     },
-    "phase_3": {
-      "title": "Frontend Development",
-      "summary": "We implemented responsive, modular UI components using React and Tailwind CSS. Grammarly’s interface inspired a clean layout with sidebar navigation.",
-      "goal": "A scalable and visually coherent interface.",
-      "contribution": "Enhanced usability, readability, and navigation across devices."
+    "impact_and_learnings": {
+      "impact": {
+        "summary": "While we lacked formal analytics, we measured success by technical completeness, showcase feedback, and personal use cases.",
+        "quantifiable": [
+          "100% functional web app deployed and demoed.",
+          "Real-time job retrieval and NLP-based resume scoring.",
+          "Feedback loop for job-specific and general resume suggestions."
+        ],
+        "qualitative": [
+          "Validated user need through reactions at the showcase.",
+          "Empowered peers with a tool that reduced application guesswork."
+        ]
+      },
+      "learnings": {
+        "summary": "This project was a masterclass in balancing technical implementation with UX. We learned how to integrate advanced NLP tools, work collaboratively across a stack, and translate personal pain points into functional software.",
+        "takeaways": [
+          "Iterative integration is essential to avoid compounding issues.",
+          "Resume improvement is not one-size-fits-all; personalization matters.",
+          "User assumptions must eventually be validated through testing."
+        ],
+        "what_we_would_change": [
+          "Start usability testing earlier.",
+          "Explore more APIs for job listings.",
+          "Build editing functionality directly into the platform."
+        ]
+      }
     },
-    "phase_4": {
-      "title": "Testing",
-      "summary": "Weekly team syncs ensured that independently built components integrated smoothly. We ran manual and live tests during and after development.",
-      "goal": "Functional reliability and user experience consistency.",
-      "contribution": "Caught integration bugs early and improved component compatibility."
-    },
-    "phase_5": {
-      "title": "Validation",
-      "summary": "Although formal user testing was limited, we validated through peer feedback and showcase demonstrations.",
-      "goal": "Confirm that the design met user expectations.",
-      "contribution": "Users responded positively to the clarity and efficiency of the interface."
+    "photos": {
+      "1": "CaseStudies/JF/JF1.jpg",
+      "2": "CaseStudies/JF/JF2.jpg",
+      "3": "CaseStudies/JF/JF3.jpg",
+      "4": "CaseStudies/JF/JF4.jpg",
+      "5": "CaseStudies/JF/JF5.jpg",
+      "6": "CaseStudies/JF/JF6.jpg"
     }
-  }
-},
-"final_design": {
-  "summary": "We delivered a complete, full-stack application with a cohesive design and reliable performance. The platform featured clean card-based job listings, real-time resume scoring, and easy navigation across the dashboard.",
-  "why_this_solution": [
-    "Balanced technical depth (NLP, AI scoring) with intuitive UI.",
-    "Focused on functionality that addressed real-world frustrations."
-  ],
-  "alternatives_considered": [
-    "In-app resume editing (excluded due to time and technical constraints).",
-    "More polished job match algorithms (deferred for future work)."
-  ],
-  "visuals": [
-    "Resume upload section with multi-format support.",
-    "Match score and feedback displayed next to saved jobs.",
-    "Job search with filters by title and location."
-  ]
-},
-
-"impact_and_learnings": {
-  "impact": {
-    "summary": "While we lacked formal analytics, we measured success by technical completeness, showcase feedback, and personal use cases.",
-    "quantifiable": [
-      "100% functional web app deployed and demoed.",
-      "Real-time job retrieval and NLP-based resume scoring.",
-      "Feedback loop for job-specific and general resume suggestions."
-    ],
-    "qualitative": [
-      "Validated user need through reactions at the showcase.",
-      "Empowered peers with a tool that reduced application guesswork."
-    ]
-  },
-  "learnings": {
-    "summary": "This project was a masterclass in balancing technical implementation with UX. We learned how to integrate advanced NLP tools, work collaboratively across a stack, and translate personal pain points into functional software.",
-    "takeaways": [
-      "Iterative integration is essential to avoid compounding issues.",
-      "Resume improvement is not one-size-fits-all; personalization matters.",
-      "User assumptions must eventually be validated through testing."
-    ],
-    "what_we_would_change": [
-      "Start usability testing earlier.",
-      "Explore more APIs for job listings.",
-      "Build editing functionality directly into the platform."
-    ],
-    "jobs_to_be_done": [
-      "Help me know if my resume is good for this job.",
-      "Show me where I’m falling short compared to a job description.",
-      "Let me track and improve all my applications in one place."
-    ]
-  }
-},
-"photos": {
-  "1": "CaseStudies/JF/JF1.jpg",
-  "2": "CaseStudies/JF/JF2.jpg",
-  "3": "CaseStudies/JF/JF3.jpg",
-  "4": "CaseStudies/JF/JF4.jpg",
-  "5": "CaseStudies/JF/JF5.jpg",
-  "6": "CaseStudies/JF/JF6.jpg"
-}
-
   },
   {
     "id": 2,
@@ -155,45 +148,119 @@
       "subtitle": "A fashion platform concept where creativity flows freely and inspiration is the only currency."
     },
     "overview": {
-      "problem": "Problem statement coming soon.",
-      "intro": "Intro text coming soon.",
-      "goals": { "1": "Goal details coming soon." },
+      "problem": "Most fashion platforms prioritize popularity over creativity. Users are overwhelmed by algorithms, followers, and influencer content, which dilutes genuine fashion discovery.",
+      "intro": "Outfitted is a fashion platform designed to center creativity and inclusivity. Users can post outfits, tag items with style, occasion, and price, and explore fashion without the pressure of likes, followers, or algorithms. As the lead designer, I oversaw research, prototyping, and testing, crafting a platform where inspiration—not influence—is the focus.",
+      "goals": {
+        "1": "Create an inclusive platform where fashion enthusiasts can share outfits and discover styles without pressure.",
+        "2": "Remove social media metrics that foster competition and shift focus to creativity and accessibility."
+      },
       "details": {
-        "role": "Designer",
-        "tasks": "To be defined",
-        "tools": "To be defined",
-        "scope": "To be defined"
+        "role": "Lead UX Designer",
+        "tasks": "UX Research, Wireframing, Prototyping, Visual Design, Usability Testing",
+        "tools": "Figma, Google Forms, Canva, Adobe Illustrator",
+        "scope": "3 Months"
       }
     },
     "photos": {
-      "1": "CaseStudies/Outfitted/OF1.jpg"
+      "1": "CaseStudies/OUTFIT/OUT1.png",
+      "2": "CaseStudies/OUTFIT/OUT2.png",
+      "3": "CaseStudies/OUTFIT/OUT3.png",
+      "4": "CaseStudies/OUTFIT/OUT4.png",
+      "5": "CaseStudies/OUTFIT/OUT5.png"
     },
     "exploration": {
-      "research_summary": "Exploration details coming soon.",
-      "methods": {}
+      "research_summary": "Our goal was to understand how users engage with fashion content and what gaps exist in current platforms. Surveys, personas, and competitor analysis revealed users' frustration with algorithm-driven feeds and highlighted a demand for outfit tagging, categorization, and price visibility.",
+      "methods": {
+        "method_1": {
+          "title": "Surveys",
+          "items": [
+            "Collected 32 responses from fashion-conscious college students across 3 campuses.",
+            "72% preferred the ability to tag outfits by occasion, style, and budget.",
+            "64% wanted price transparency included with outfit posts to make replication easier."
+          ]
+        },
+        "method_2": {
+          "title": "User Personas",
+          "items": [
+            "Created personas such as trend-driven creators, sustainable fashion advocates, and budget shoppers.",
+            "Ensured we designed for a range of needs: inspiration, affordability, and utility."
+          ]
+        },
+        "method_3": {
+          "title": "Competitor Analysis",
+          "items": [
+            "Studied platforms like Instagram, Pinterest, and TikTok.",
+            "Found discoverability strengths but also issues with popularity bias and lack of outfit-specific organization."
+          ]
+        }
+      }
     },
     "design_process": {
-      "intro": "Design process details coming soon.",
-      "phases": {}
+      "intro": "We pursued a user-centered design process, exploring multiple directions and iterating based on continuous feedback. Our focus was to create a frictionless experience that promotes fashion discovery without social pressures.",
+      "phases": {
+        "phase_1": {
+          "title": "Design Exploration",
+          "summary": "We explored three concepts: a scrolling feed, MySpace-style profiles, and a grid-based discovery layout.",
+          "goal": "Identify the best structure for style discovery and user engagement.",
+          "contribution": "Chose grid-based design based on usability and user preference."
+        },
+        "phase_2": {
+          "title": "Wireframes & Prototypes",
+          "summary": "Created low and mid-fidelity prototypes to test core flows like outfit uploading, tagging, and browsing.",
+          "goal": "Validate usability of layout and interactions.",
+          "contribution": "Revised layout, removed likes/follows, and simplified profiles based on user feedback."
+        },
+        "phase_3": {
+          "title": "Usability Testing",
+          "summary": "Tested prototypes with 8 participants to identify friction points and measure engagement.",
+          "goal": "Improve navigation, outfit discoverability, and clarity of interface.",
+          "contribution": "Streamlined grid layout, made price tags prominent, and added comment-based interaction."
+        }
+      }
     },
     "final_design": {
-      "summary": "Final design details coming soon.",
-      "why_this_solution": [],
-      "alternatives_considered": [],
-      "visuals": []
+      "summary": "The final design centers around a clean grid layout where users can browse tagged outfits with clear price info and style context. We eliminated likes and followers to focus on community and creativity.",
+      "why_this_solution": [
+        "Supports exploration without pressure or comparison.",
+        "Tagging and filtering features enhance outfit discovery.",
+        "Commenting fosters community while avoiding competition."
+      ],
+      "alternatives_considered": [
+        "Scrolling feed (too linear and reminiscent of Instagram).",
+        "Customizable profiles (too complex and distracting from fashion content)."
+      ],
+      "visuals": [
+        "Grid view of tagged outfits.",
+        "Tag filters for style, occasion, and price.",
+        "Simplified user profile showing outfit collections only."
+      ]
     },
     "impact_and_learnings": {
       "impact": {
-        "summary": "",
-        "quantifiable": [],
-        "qualitative": []
+        "summary": "Outfitted created a refreshing alternative to competitive fashion platforms. Users found it easier to discover styles and appreciated the judgment-free environment.",
+        "quantifiable": [
+          "88% of surveyed users supported removing likes/followers.",
+          "75% found price tagging essential for outfit replication.",
+          "Improved discoverability through tagged filters and grid layout."
+        ],
+        "qualitative": [
+          "Users described the app as 'refreshing' and 'inclusive.'",
+          "Simplified profiles made fashion feel more accessible and democratic."
+        ]
       },
       "learnings": {
-        "summary": "",
-        "takeaways": [],
-        "what_we_would_change": [],
-        "jobs_to_be_done": []
-        }  
+        "summary": "Outfitted taught us the power of subtractive design—removing expected features created space for more authentic interaction. Prioritizing accessibility and inspiration led to a stronger user experience.",
+        "takeaways": [
+          "Users prefer simplicity and utility over excessive customization.",
+          "Removing metrics changes behavior—people share more freely.",
+          "Inclusive design is structural, not just visual."
+        ],
+        "what_we_would_change": [
+          "Begin accessibility testing earlier in the process.",
+          "Prototype interaction features like outfit boards or curated collections sooner.",
+          "Include broader demographics in initial surveys for more holistic insights."
+        ]
       }
+    }
   }
 ]
