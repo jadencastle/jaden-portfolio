@@ -12,7 +12,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-full lg:w-[35vw] top-0 lg:h-screen lg:sticky flex flex-col justify-between items-center lg:items-start text-center lg:text-left px-6 sm:px-12 lg:px-20 py-8 lg:py-20 border-b lg:border-b-0 lg:border-r border-green-950">
+    <aside className="w-full lg:w-[35vw] top-0 lg:h-screen lg:sticky flex flex-col justify-between items-center lg:items-start text-center lg:text-left px-6 sm:px-12 lg:px-20 pt-8 lg:pt-20 lg:pb-0 border-b lg:border-b-0 lg:border-r border-green-950">
       <div className="space-y-3">
         <h1 className="text-5xl font-bold text-zinc-100">Jaden Castle</h1>
         <h2 className="text-2xl font-semibold	text-stone-50">

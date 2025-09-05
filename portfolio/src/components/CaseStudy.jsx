@@ -1,271 +1,263 @@
-import { useParams } from "react-router-dom";
-import projectData from "../data/projects.json";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import projectData from "../data/projects.json";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "../styles/swiper.css";
+
 
 const Card = ({ children }) => (
-  <div className="bg-[#132d1f] border border-[#2f4e3b] rounded-2xl shadow-lg p-6 sm:p-10 space-y-10">
+  <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-6 sm:p-10 space-y-6">
     {children}
   </div>
 );
 
 const SectionTitle = ({ children }) => (
-  <h2 className="text-2xl sm:text-3xl font-bold text-[#9dd8ae]">{children}</h2>
+  <h2 className="text-2xl sm:text-3xl font-bold text-[#2f4e3b] mb-6">{children}</h2>
 );
 
-const SubTitle = ({ children, className = "" }) => (
-  <h3 className={`text-lg sm:text-xl font-semibold mb-2 ${className}`}>{children}</h3>
+const SubTitle = ({ children }) => (
+  <h3 className="text-lg sm:text-xl font-semibold text-[#2f4e3b] mb-3">{children}</h3>
 );
-
-const OverviewDetails = ({ details }) => (
-  <div className="flex flex-col justify-center gap-16 text-stone-50 pl-2 md:pl-10 h-full">
-    {Object.entries(details).map(([label, value]) => (
-      <div className="flex gap-4" key={label}>
-        <span className="font-medium text-zinc-100 w-[90px] capitalize">{label}</span>
-        <span className="flex-1">{value}</span>
-      </div>
-    ))}
-  </div>
-);
-
-const SectionWrapper = ({ title, children, noCard = false }) => {
-  const content = (
-    <div className="space-y-4">
-      <SectionTitle>{title}</SectionTitle>
-      {children}
-    </div>
-  );
-  return noCard ? content : <Card>{content}</Card>;
-};
 
 export default function CaseStudy() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const project = projectData.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  const project = projectData.find(
+    (p) => p.slug.toLowerCase() === slug.toLowerCase()
+  );
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    // Force CaseStudy page background to pure white
+    document.documentElement.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "white";
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") setSelectedImage(null);
+    return () => {
+      document.documentElement.style.backgroundColor = "";
+      document.body.style.backgroundColor = "";
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  if (!project) {
-    return <div className="text-white p-4">Project not found.</div>;
-  }
+  if (!project) return <div className="text-gray-900 p-4">Project not found.</div>;
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 text-zinc-100 space-y-12">
-      <button
-        onClick={() => navigate(-1)}
-        className="fixed top-4 left-4 z-40 flex items-center gap-2 bg-[#132d1f] hover:bg-[#1e3b2b] text-[#9dd8ae] hover:text-white px-4 py-2 rounded-full shadow-lg transition-colors duration-300 border border-[#2f4e3b]"
-      >
-        <FaArrowLeft />
+    <div className="min-h-screen w-full bg-white">
+      <section className="max-w-7xl mx-auto px-4 py-12 text-gray-900 space-y-20">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="fixed top-4 left-4 z-40 flex items-center gap-2 bg-[#132d1f] hover:bg-[#1e3b2b] text-[#9dd8ae] hover:text-white px-4 py-2 rounded-full shadow-lg transition-colors duration-300 border border-[#2f4e3b]"
+        >
+          <FaArrowLeft />
           <span className="hidden sm:inline">Back to Projects</span>
-      </button>
-      <div className="text-center space-y-6 mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{project.hero.title}</h1>
-        <p className="text-base sm:text-lg text-stone-50 max-w-2xl mx-auto py-1.5">{project.hero.subtitle}</p>
-      </div>
+        </button>
 
-      {project.overview && (
-        <Card>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-10">
-              <div className="space-y-4">
-                <SubTitle className="text-[#9dd8ae]">Overview</SubTitle>
-                <p className="text-stone-50">{project.overview.problem}</p>
-                <p className="text-stone-50">{project.overview.intro}</p>
-              </div>
-              <div>
-                <SubTitle>Goals</SubTitle>
-                <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                  {Object.values(project.overview.goals).map((goal, index) => (
-                    <li key={index} className="leading-relaxed">{goal}</li>
-                  ))}
-                </ul>
-              </div>
+        {/* Hero / Header */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+          <div className="flex flex-col justify-center space-y-4 text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              {project.hero.title}
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-700">{project.hero.subtitle}</p>
+            <div className="text-base sm:text-lg space-y-2 text-gray-600">
+              <p>
+                <span className="font-semibold text-[#2f4e3b]">Role:</span>{" "}
+                {project.hero.role}
+              </p>
+              <p>
+                <span className="font-semibold text-[#2f4e3b]">Scope:</span>{" "}
+                {project.hero.scope}
+              </p>
+              <p>
+                <span className="font-semibold text-[#2f4e3b]">Tools:</span>{" "}
+                {project.hero.tools}
+              </p>
             </div>
-            <OverviewDetails details={project.overview.details} />
+          </div>
+          <div className="flex">
+            <img
+              src={project.hero.img}
+              alt={project.hero.title}
+              className="rounded-2xl shadow-lg w-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Final Designs Carousel */}
+        <section>
+          <SectionTitle>Final Designs</SectionTitle>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            spaceBetween={20}
+            slidesPerView={1}
+            className="rounded-xl shadow-lg"
+          >
+            {Object.values(project.carousel).map((src, i) => (
+              <SwiperSlide key={i}>
+                <img
+                  src={src}
+                  alt={`Screenshot ${i + 1}`}
+                  className="rounded-xl shadow w-full object-cover aspect-[2048/925]"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </section>
+
+        {/* Overview */}
+        <Card>
+          <SectionTitle>Project Overview</SectionTitle>
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            {project.overview.description}
+          </p>
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            {project.overview.description2}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-8">
+            <div>
+              <SubTitle>Challenge</SubTitle>
+              <p className="text-gray-700">{project.overview.challenge}</p>
+            </div>
+            <div>
+              <SubTitle>Goal</SubTitle>
+              <p className="text-gray-700">{project.overview.goal}</p>
+            </div>
           </div>
         </Card>
-      )}
 
-      <div className="pt-6">
-        <h3 className="text-2xl sm:text-3xl font-semibold text-[#9dd8ae] mb-6">Final Designs</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {Object.keys(project.photos).map((key) => (
-            <img
-            key={key}
-            src={`${import.meta.env.BASE_URL}${project.photos[key]}`}
-            alt={`Screenshot ${key}`}
-            onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}${project.photos[key]}`)}
-            className={`rounded-xl shadow-lg w-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105 ${
-              project.photos[key].includes("OUT") ? "max-h-[980px] object-contain" : ""
-            }`}
-          />          
-          ))}
-        </div>
-        {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div
-              className="pointer-events-none"
-            >
-            <img
-              src={selectedImage}
-              alt="Enlarged"
-              className="w-[95%] h-auto max-h-[90vh] rounded-lg shadow-2xl object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-            </div>
-          </div>
-        )}
-      </div>
-
-      {project.exploration && (
-        <SectionWrapper title="Exploration & Discovery">
-          <p className="text-stone-50 max-w-4xl leading-relaxed text-base sm:text-lg">
-            {project.exploration.research_summary}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {Object.values(project.exploration.methods).map((method, idx) => (
-              <div key={idx} className="space-y-2">
-                <SubTitle>{method.title}</SubTitle>
-                <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                  {method.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
+        {/* Research */}
+        <section>
+          <SectionTitle>Research</SectionTitle>
+          {Object.values(project.research.methods).map((method, idx) => (
+            <div key={idx} className="mb-10 space-y-4 ">
+              <h3 className="text-xl sm:text-2xl font-semibold text-[#2f4e3b] mb-4">
+                {method.title}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {Object.values(method).map((stat, i) => {
+                  if (typeof stat !== "object") return null;
+                  return (
+                    <div key={i} className="space-y-3">
+                      <p className="font-semibold text-lg text-gray-900">
+                        💡 {stat.findings}
+                      </p>
+                      <blockquote className="italic text-base text-gray-500 border-l-2 border-gray-200 pl-3">
+                        {stat.evidence}
+                      </blockquote>
+                      <p className="text-base leading-relaxed text-gray-700">
+                        <span className="font-medium text-[#2f4e3b]">
+                          Relevance:{" "}
+                        </span>
+                        {stat.relevance}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
+            </div>
+          ))}
+        </section>
+
+        {/* Ideation */}
+        <section>
+          <SectionTitle>Ideation</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-5">
+            <img
+              src={project.ideation.phase1.graph}
+              alt="Phase 1"
+              className="rounded-lg shadow-lg"
+            />
+            <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+              {project.ideation.phase1.process}
+            </p>
+          </div>
+        </section>
+
+        {/* Design Process */}
+        <section>
+          <SectionTitle>Design Process</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+              {project.design_process.phase1.summary}
+            </p>
+            <div>
+              <img
+                src={project.design_process.phase1.graphic}
+                alt="Design Graphic"
+                className="rounded-lg shadow-lg"
+              />
+              <p className="text sm text-gray-500 mt-8">{project.design_process.phase1.caption}</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-12">
+            <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+              {project.design_process.phase2.summary}
+            </p>
+            <img
+              src={project.design_process.phase2.graphic}
+              alt="Phase 2"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+          <div className="pt-12">
+          <SectionTitle> Mid Fidelity Wireframes</SectionTitle>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            spaceBetween={20}
+            slidesPerView={1}
+            className="rounded-xl shadow-lg"
+          >
+            {Object.values(project.design_process.wireframes).map((src, i) => (
+              <SwiperSlide key={i}>
+                <img
+                  src={src}
+                  alt={`Wireframe ${i + 1}`}
+                  className="rounded-xl shadow w-full object-cover"
+                />
+              </SwiperSlide>
             ))}
+          </Swiper>
           </div>
-        </SectionWrapper>
-      )}
+        </section>
 
-      {project.design_process && (
-        <SectionWrapper title="Design Process" noCard>
-          <p className="text-stone-50 max-w-5xl leading-relaxed text-base sm:text-lg">
-            {project.design_process.intro}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {Object.values(project.design_process.phases).map((phase, idx, arr) => {
-              const isLast = idx === arr.length - 1;
-              const isOdd = arr.length % 2 !== 0;
-              return (
-                <div
-                  key={idx}
-                  className={`bg-[#132d1f] border border-[#2f4e3b] rounded-xl p-6 space-y-4 shadow ${
-                    isLast && isOdd ? "md:col-span-2 md:max-w-3xl md:mx-auto" : ""
-                  }`}
-                >
-                  <h3 className="text-xl font-bold text-zinc-100">{phase.title}</h3>
-                  <p className="text-stone-50">{phase.summary}</p>
-                  <div className="text-stone-50 space-y-1">
-                    <p><span className="text-[#9dd8ae] font-semibold">What we wanted to achieve:</span> {phase.goal}</p>
-                    <p><span className="text-[#9dd8ae] font-semibold">How it contributed:</span> {phase.contribution}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </SectionWrapper>
-      )}
+        {/* Final Designs Video */}
+        <Card>
+          <SectionTitle>Final Solution Showcase</SectionTitle>
+          <video
+            src={project.final.video}
+            controls
+            className="w-full rounded-lg shadow"
+          />
+        </Card>
 
-      {project.final_design && (
-        <SectionWrapper title="Final Design & Solution">
-          <p className="text-stone-50 max-w-4xl leading-relaxed text-base sm:text-lg">
-            {project.final_design.summary}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <SubTitle>Why this solution</SubTitle>
-              <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                {project.final_design.why_this_solution.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
+        {/* Reflection */}
+        <section>
+          <SectionTitle>Reflection</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+              <SubTitle>What We Learned</SubTitle>
+              <p className="leading-relaxed">{project.reflection.learned}</p>
             </div>
-            <div className="space-y-2">
-              <SubTitle>Alternatives considered</SubTitle>
-              <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                {project.final_design.alternatives_considered.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
+            <div>
+              <SubTitle>Improvements</SubTitle>
+              <p className="leading-relaxed">{project.reflection.improvements}</p>
+            </div>
+            <div>
+              <SubTitle>Future Directions</SubTitle>
+              <p className="leading-relaxed">{project.reflection.future}</p>
             </div>
           </div>
-          <div className="space-y-2">
-            <SubTitle>Visual Highlights</SubTitle>
-            <ul className="list-disc pl-5 text-stone-50 space-y-1">
-              {project.final_design.visuals.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </SectionWrapper>
-      )}
-
-      {project.impact_and_learnings && (
-        <SectionWrapper title="Impact">
-          <p className="text-stone-50 max-w-4xl leading-relaxed text-base sm:text-lg">
-            {project.impact_and_learnings.impact.summary}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <SubTitle>Quantifiable Outcomes</SubTitle>
-              <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                {project.impact_and_learnings.impact.quantifiable.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <SubTitle>Qualitative Impact</SubTitle>
-              <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                {project.impact_and_learnings.impact.qualitative.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </SectionWrapper>
-      )}
-
-      {project.impact_and_learnings && (
-        <SectionWrapper title="Learnings">
-          <p className="text-stone-50 max-w-4xl leading-relaxed text-base sm:text-lg">
-            {project.impact_and_learnings.learnings.summary}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <SubTitle>Key Takeaways</SubTitle>
-              <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                {project.impact_and_learnings.learnings.takeaways.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <SubTitle>What We’d Do Differently</SubTitle>
-              <ul className="list-disc pl-5 text-stone-50 space-y-1">
-                {project.impact_and_learnings.learnings.what_we_would_change.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </SectionWrapper>
-      )}
-    </section>
+        </section>
+      </section>
+    </div>
   );
 }
