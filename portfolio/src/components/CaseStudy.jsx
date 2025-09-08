@@ -33,7 +33,6 @@ export default function CaseStudy() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    // Force CaseStudy page background to pure white
     document.documentElement.style.backgroundColor = "white";
     document.body.style.backgroundColor = "white";
 
@@ -48,7 +47,6 @@ export default function CaseStudy() {
   return (
     <div className="min-h-screen w-full bg-white">
       <section className="max-w-7xl mx-auto px-4 py-12 text-gray-900 space-y-20">
-        {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
           className="fixed top-4 left-4 z-40 flex items-center gap-2 bg-[#132d1f] hover:bg-[#1e3b2b] text-[#9dd8ae] hover:text-white px-4 py-2 rounded-full shadow-lg transition-colors duration-300 border border-[#2f4e3b]"
@@ -57,7 +55,6 @@ export default function CaseStudy() {
           <span className="hidden sm:inline">Back to Projects</span>
         </button>
 
-        {/* Hero / Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
           <div className="flex flex-col justify-center space-y-4 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -88,7 +85,6 @@ export default function CaseStudy() {
           </div>
         </div>
 
-        {/* Final Designs Carousel */}
         <section>
           <SectionTitle>Final Designs</SectionTitle>
           <Swiper
@@ -111,7 +107,6 @@ export default function CaseStudy() {
           </Swiper>
         </section>
 
-        {/* Overview */}
         <Card>
           <SectionTitle>Project Overview</SectionTitle>
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
@@ -132,7 +127,6 @@ export default function CaseStudy() {
           </div>
         </Card>
 
-        {/* Research */}
         <section>
           <SectionTitle>Research</SectionTitle>
           {Object.values(project.research.methods).map((method, idx) => (
@@ -165,7 +159,6 @@ export default function CaseStudy() {
           ))}
         </section>
 
-        {/* Ideation */}
         <section>
           <SectionTitle>Ideation</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-5">
@@ -180,7 +173,6 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* Design Process */}
         <section>
           <SectionTitle>Design Process</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -229,17 +221,15 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* Final Designs Video */}
         <Card>
           <SectionTitle>Final Solution Showcase</SectionTitle>
           <video
             src={project.final.video}
             controls
-            className="w-full rounded-lg shadow"
+            className="w-full rounded-xl shadow object-contain"
           />
         </Card>
 
-        {/* Reflection */}
         <section>
           <SectionTitle>Reflection</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
